@@ -2,7 +2,7 @@ function Tree() {
   this.leaves = [];
   this.branches = [];
 
-  for (var i = 0; i < 500; i++) {
+  for (var i = 0; i < 1500; i++) { // originally goes to 500
     this.leaves.push(new Leaf());
   }
   var pos = createVector(width / 2, height);
@@ -62,7 +62,7 @@ function Tree() {
     for (var i = this.branches.length -1 ; i >= 0; i--) {
       var branch = this.branches[i];
       if (branch.count > 0) {
-        branch.dir.div(branch.count);
+        branch.dir.div(branch.count + 1); // originally just branch.count
         this.branches.push(branch.next());
       }
       branch.reset();
